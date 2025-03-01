@@ -1,8 +1,8 @@
-public class Cicle extends shape {
+public class Circle extends shape {
 
     private  int cx, cy, radius;
 
-    public Cicle(String color ,int cx, int cy, int radius) {
+    public Circle(String color ,int cx, int cy, int radius) {
         super(color);
         this.cx = cx;
         this.cy = cy;
