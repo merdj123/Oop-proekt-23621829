@@ -1,4 +1,4 @@
-public class Rectangle extends shape {
+public class Rectangle extends Shape {
     private int x,y,w,h;
     public Rectangle(String color ,int x, int y, int w, int h) {
         super(color);

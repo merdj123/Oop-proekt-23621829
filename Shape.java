@@ -1,7 +1,10 @@
-public abstract class shape {
+public abstract class Shape {
     protected  String color;
-    public shape(String color) {
+    public Shape(String color) {
         this.color = color;
+    }
+    public void setColor(String newColor) {
+        this.color = newColor;
     }
     public abstract String  draw() ;
     public abstract void translate(int dx ,int  dy);
