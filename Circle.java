@@ -1,4 +1,4 @@
-public class Circle extends shape {
+public class Circle extends Shape {
 
     private  int cx, cy, radius;
 
