@@ -15,4 +15,17 @@ public class Rectangle extends Shape {
       y += dy;
 
     }
+    public boolean isWithinRectangle(int rx, int ry, int rw, int rh) {
+        return x >= rx && y >= ry && (x + w) <= (rx + rw) && (y + h) <= (ry + rh);
+    }
+    public boolean isWithinCircle(int cx, int cy, int r) {
+        return Math.hypot(x - cx, y - cy) <= r &&
+                Math.hypot((x + w) - cx, y - cy) <= r &&
+                Math.hypot(x - cx, (y + h) - cy) <= r &&
+                Math.hypot((x + w) - cx, (y + h) - cy) <= r;
+    }
+    public String toSVG() {
+        return "<Rectangle  x"+x+", y"+y+", width"+w+", height"+h +" fill="+color+">";
+    }
+
 }

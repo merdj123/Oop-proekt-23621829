@@ -1,5 +1,13 @@
+import java.util.List;
+
 public class Svg implements SvgEditor {
 
+    private List<Shape> shapes;
+    private String currentFile = "";
+
+    public Svg(List<Shape> shapes) {
+        this.shapes = shapes;
+    }
     @Override
     public void close() {
 
