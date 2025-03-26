@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         List<Shape> shapes = new ArrayList<>();
-
         Svg svgEditor = new Svg(shapes);
         Scanner scanner = new Scanner(System.in);
         System.out.println("SVG Editor - Enter a command (type 'help' for commands):");
