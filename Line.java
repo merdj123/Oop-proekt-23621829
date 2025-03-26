@@ -1,40 +1,49 @@
-import java.awt.*;
-
-public class Line extends Shape {
+class Line extends Shape {
     private int x1, y1, x2, y2;
 
-    public Line(int x1, int y1, int x2, int y2, String color) {
+    public Line(String color, int x1, int y1, int x2, int y2) {
         super(color);
         this.x1 = x1;
         this.y1 = y1;
         this.x2 = x2;
         this.y2 = y2;
-
     }
 
-    public String draw() {
-        return "Line " + "(" + x1 + ", " + y1 + "),to (" + x2 + ", " + y2 + ")";
-
+    @Override
+    public String toString() {
+        return "line " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + color;
     }
 
+    @Override
+    public String toSVG() {
+        return "<line x1=\"" + x1 + "\" y1=\"" + y1 +
+                "\" x2=\"" + x2 + "\" y2=\"" + y2 +
+                "\" stroke=\"" + color + "\" />";
+    }
+
+    @Override
+    public boolean isWithin(Rectangle rect) {
+        return (x1 >= rect.getX() && y1 >= rect.getY() &&
+                x2 <= rect.getX() + rect.getWidth() &&
+                y2 <= rect.getY() + rect.getHeight());
+    }
+
+    @Override
+    public boolean isWithin(Circle circle) {
+        return isInside(x1, y1, circle) && isInside(x2, y2, circle);
+    }
+
+    private boolean isInside(int x, int y, Circle circle) {
+        int dx = x - circle.getCx();
+        int dy = y - circle.getCy();
+        return dx * dx + dy * dy <= circle.getR() * circle.getR();
+    }
+
+    @Override
     public void translate(int dx, int dy) {
         x1 += dx;
         y1 += dy;
         x2 += dx;
         y2 += dy;
-
-    }
-
-    public boolean isWithinRectangle(int rx, int ry, int rw, int rh) {
-        return x1 >= rx && y1 >= ry && x1 <= (rx + rw) && y1 <= (ry + rh) &&
-                x2 >= rx && y2 >= ry && x2 <= (rx + rw) && y2 <= (ry + rh);
-    }
-
-    public boolean isWithinCircle(int cx, int cy, int r) {
-        return Math.hypot(x1 - cx, y1 - cy) <= r && Math.hypot(x2 - cx, y2 - cy) <= r;
-    }
-
-    public String toSVG() {
-        return "<Line x1"+x1 +"y1"+y1 +"x2"+x2 +"y2"+y2+ "stroke "+color+">";
     }
 }
