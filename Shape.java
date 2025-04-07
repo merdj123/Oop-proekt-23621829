@@ -1,21 +1,20 @@
 abstract class Shape {
-    protected String color;
+    protected String fill;
 
-    public Shape(String color) {
-        this.color = color;
+    public Shape(String fill) {
+        this.fill = fill;
     }
 
-    public abstract String toString();
+    public abstract String getShapeType();
+
+    public abstract void translate(int horizontal, int vertical);
+
+    public abstract boolean isWithinRectangle(int x, int y, int width, int height);
+
+    public abstract boolean isWithinCircle(int cx, int cy, int radius);
+
     public abstract String toSVG();
-    public abstract boolean isWithin(Rectangle rectangle);
-    public abstract boolean isWithin(Circle circle);
-    public abstract void translate(int dx, int dy);
 
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public String getColor() {
-        return color;
-    }
+    @Override
+    public abstract String toString();
 }

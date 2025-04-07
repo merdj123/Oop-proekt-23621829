@@ -4,19 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ba990d-94e3-4d2a-b189-036d33fba723" name="Changes" comment="Merge remote-tracking branch 'origin/master16.3' into master16.3  добавен метод за четене &#10;# Conflicts:&#10;#&#9;Main.java&#10;#&#9;Svg.java&#10;#&#9;SvgEditor.java">
+    <list default="true" id="23ba990d-94e3-4d2a-b189-036d33fba723" name="Changes" comment="методи за четене ,затваряне и запазване и помощ , изход">
+      <change afterPath="$PROJECT_DIR$/CloseCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CreateCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ExitCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelpCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OpenCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PrintCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SVGContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SaveAsCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SaveCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TranslateCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WithinCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/Circle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/Line.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rectangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Svg.java" beforeDir="false" afterPath="$PROJECT_DIR$/Svg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/svg_files_project/Circle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/svg_files_project/Circle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/svg_files_project/Line.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/svg_files_project/Line.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/svg_files_project/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/svg_files_project/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/svg_files_project/Rectangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/svg_files_project/Rectangle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/svg_files_project/Shape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/svg_files_project/Shape.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/svg_files_project/Svg.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/svg_files_project/Svg.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Svg.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +58,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master23" />
+        <entry key="$PROJECT_DIR$" value="8541046b6b7846bff390825fabd2b50d56bb3e80" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -82,21 +87,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master26.03&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -118,7 +124,9 @@
       <workItem from="1742143718529" duration="2198000" />
       <workItem from="1742771402195" duration="1741000" />
       <workItem from="1743010430132" duration="1143000" />
-      <workItem from="1743790663085" duration="3956000" />
+      <workItem from="1743790663085" duration="5548000" />
+      <workItem from="1744040037490" duration="1444000" />
+      <workItem from="1745166200798" duration="1748000" />
     </task>
     <task id="LOCAL-00001" summary="направени басик класове и пасик функции">
       <option name="closed" value="true" />
@@ -224,19 +232,114 @@
       <option name="project" value="LOCAL" />
       <updated>1743011566385</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Merge remote-tracking branch 'origin/master16.3' into master16.3  добавен e метод за четене за запазване">
+      <option name="closed" value="true" />
+      <created>1743797544269</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1743797544269</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Merge remote-tracking branch 'origin/master16.3' into master16.3  добавен e метод за четене за запазване">
+      <option name="closed" value="true" />
+      <created>1743797615128</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1743797615128</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Merge remote-tracking branch 'origin/master16.3' into master16.3  добавен e метод за четене за запазване">
+      <option name="closed" value="true" />
+      <created>1743797690448</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1743797690448</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Merge remote-tracking branch 'origin/master16.3' into master16.3  добавен e метод за четене за запазване">
+      <option name="closed" value="true" />
+      <created>1743797728850</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1743797728850</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Merge remote-tracking branch 'origin/master26.03' into master26.03&#10;&#10;# Conflicts:&#10;#&#9;Svg.java">
+      <option name="closed" value="true" />
+      <created>1743797786672</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1743797786672</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Merge remote-tracking branch 'origin/master26.03' into master26.03&#10;&#10;# Conflicts:&#10;#&#9;Svg.java">
+      <option name="closed" value="true" />
+      <created>1743797833082</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1743797833082</updated>
+    </task>
+    <task id="LOCAL-00020" summary="направени басик класове и пасик функции&#10;добавен интерфейс и клас за работа с svg файлове">
+      <option name="closed" value="true" />
+      <created>1744041246404</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1744041246404</updated>
+    </task>
+    <task id="LOCAL-00021" summary="методи за четене ,затваряне и запазване и помощ , изход">
+      <option name="closed" value="true" />
+      <created>1744041304896</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1744041304896</updated>
+    </task>
+    <task id="LOCAL-00022" summary="методи за четене ,затваряне и запазване и помощ , изход">
+      <option name="closed" value="true" />
+      <created>1744041310633</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1744041310633</updated>
+    </task>
+    <task id="LOCAL-00023" summary="методи за четене ,затваряне и запазване и помощ , изход">
+      <option name="closed" value="true" />
+      <created>1744041464575</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1744041464575</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="направени басик класове и пасик функции ." />
     <MESSAGE value="направени басик класове и пасик функции" />
-    <MESSAGE value="направени басик класове и пасик функции&#10;добавен интерфейс и клас за работа с svg файлове" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master16.3' into master16.3&#10;&#10;# Conflicts:&#10;#&#9;Main.java&#10;#&#9;Svg.java&#10;#&#9;SvgEditor.java" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master16.3' into master16.3  доване нови методи в класовете &#10;&#10;# Conflicts:&#10;#&#9;Main.java&#10;#&#9;Svg.java&#10;#&#9;SvgEditor.java" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master16.3' into master16.3  добавен метод за четене &#10;# Conflicts:&#10;#&#9;Main.java&#10;#&#9;Svg.java&#10;#&#9;SvgEditor.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master16.3' into master16.3  добавен метод за четене &#10;# Conflicts:&#10;#&#9;Main.java&#10;#&#9;Svg.java&#10;#&#9;SvgEditor.java" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master16.3' into master16.3  добавен e метод за четене ,затваряне,запазване и изход" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master16.3' into master16.3  добавен e метод за четене за запазване" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master26.03' into master26.03&#10;&#10;# Conflicts:&#10;#&#9;Svg.java" />
+    <MESSAGE value="направени басик класове и пасик функции&#10;добавен интерфейс и клас за работа с svg файлове" />
+    <MESSAGE value="методи за четене ,затваряне и запазване и помощ , изход" />
+    <option name="LAST_COMMIT_MESSAGE" value="методи за четене ,затваряне и запазване и помощ , изход" />
   </component>
 </project>

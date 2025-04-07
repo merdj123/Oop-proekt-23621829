@@ -1,47 +1,49 @@
 class Circle extends Shape {
-    private int cx, cy, r;
+    private int cx;
+    private int cy;
+    private int radius;
 
-    public Circle(String color, int cx, int cy, int r) {
-        super(color);
+    public Circle(int cx, int cy, int radius, String fill) {
+        super(fill);
         this.cx = cx;
         this.cy = cy;
-        this.r = r;
+        this.radius = radius;
     }
 
     @Override
-    public String toString() {
-        return "circle " + cx + " " + cy + " " + r + " " + color;
+    public String getShapeType() {
+        return "circle";
+    }
+
+    @Override
+    public void translate(int horizontal, int vertical) {
+        this.cx += horizontal;
+        this.cy += vertical;
+    }
+
+    @Override
+    public boolean isWithinRectangle(int x, int y, int width, int height) {
+        return this.cx - this.radius >= x &&
+                this.cx + this.radius <= x + width &&
+                this.cy - this.radius >= y &&
+                this.cy + this.radius <= y + height;
+    }
+
+    @Override
+    public boolean isWithinCircle(int cx, int cy, int radius) {
+        int dx = this.cx - cx;
+        int dy = this.cy - cy;
+        return Math.sqrt(dx * dx + dy * dy) + this.radius <= radius;
     }
 
     @Override
     public String toSVG() {
-        return "<circle cx=\"" + cx + "\" cy=\"" + cy + "\" r=\"" + r +
-                "\" fill=\"" + color + "\" />";
+        return "<circle cx=\"" + this.cx + "\" cy=\"" + this.cy + "\" r=\"" +
+                this.radius + "\" fill=\"" + this.fill + "\" />";
     }
 
     @Override
-    public boolean isWithin(Rectangle rectangle) {
-        return cx - r >= rectangle.getX() &&
-                cy - r >= rectangle.getY() &&
-                cx + r <= rectangle.getX() + rectangle.getWidth() &&
-                cy + r <= rectangle.getY() + rectangle.getHeight();
+    public String toString() {
+        return "circle " + this.cx + " " + this.cy + " " + this.radius + " " + this.fill;
     }
-
-    @Override
-    public boolean isWithin(Circle circle) {
-        int dx = cx - circle.cx;
-        int dy = cy - circle.cy;
-        double distance = Math.sqrt(dx * dx + dy * dy);
-        return distance + r <= circle.r;
-    }
-
-    @Override
-    public void translate(int dx, int dy) {
-        cx += dx;
-        cy += dy;
-    }
-
-    public int getCx() { return cx; }
-    public int getCy() { return cy; }
-    public int getR() { return r; }
 }
