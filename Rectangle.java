@@ -1,11 +1,8 @@
 class Rectangle extends Shape {
-    private int x;
-    private int y;
-    private int width;
-    private int height;
+    private int x, y, width, height;
 
-    public Rectangle(int x, int y, int width, int height, String fill) {
-        super(fill);
+    public Rectangle(String color, int x, int y, int width, int height) {
+        super(color);
         this.x = x;
         this.y = y;
         this.width = width;
@@ -13,48 +10,45 @@ class Rectangle extends Shape {
     }
 
     @Override
-    public String getShapeType() {
-        return "rectangle";
-    }
-
-    @Override
-    public void translate(int horizontal, int vertical) {
-        this.x += horizontal;
-        this.y += vertical;
-    }
-
-    @Override
-    public boolean isWithinRectangle(int x, int y, int width, int height) {
-        return this.x >= x && this.x + this.width <= x + width &&
-                this.y >= y && this.y + this.height <= y + height;
-    }
-
-    @Override
-    public boolean isWithinCircle(int cx, int cy, int radius) {
-        // Проверка дали всички ъгли са в кръга
-        int dx1 = this.x - cx;
-        int dy1 = this.y - cy;
-        int dx2 = (this.x + this.width) - cx;
-        int dy2 = this.y - cy;
-        int dx3 = this.x - cx;
-        int dy3 = (this.y + this.height) - cy;
-        int dx4 = (this.x + this.width) - cx;
-        int dy4 = (this.y + this.height) - cy;
-
-        return (dx1*dx1 + dy1*dy1 <= radius*radius) &&
-                (dx2*dx2 + dy2*dy2 <= radius*radius) &&
-                (dx3*dx3 + dy3*dy3 <= radius*radius) &&
-                (dx4*dx4 + dy4*dy4 <= radius*radius);
+    public String toString() {
+        return "rectangle " + x + " " + y + " " + width + " " + height + " " + color;
     }
 
     @Override
     public String toSVG() {
-        return "<rect x=\"" + this.x + "\" y=\"" + this.y + "\" width=\"" +
-                this.width + "\" height=\"" + this.height + "\" fill=\"" + this.fill + "\" />";
+        return "<rect x=\"" + x + "\" y=\"" + y + "\" width=\"" + width +
+                "\" height=\"" + height + "\" fill=\"" + color + "\" />";
     }
 
     @Override
-    public String toString() {
-        return "rectangle " + this.x + " " + this.y + " " + this.width + " " + this.height + " " + this.fill;
+    public boolean isWithin(Rectangle rectangle) {
+        return x >= rectangle.x && y >= rectangle.y &&
+                x + width <= rectangle.x + rectangle.width &&
+                y + height <= rectangle.y + rectangle.height;
     }
+
+    @Override
+    public boolean isWithin(Circle circle) {
+        return isPointInCircle(x, y, circle) &&
+                isPointInCircle(x + width, y, circle) &&
+                isPointInCircle(x, y + height, circle) &&
+                isPointInCircle(x + width, y + height, circle);
+    }
+
+    private boolean isPointInCircle(int px, int py, Circle circle) {
+        int dx = px - circle.getCx();
+        int dy = py - circle.getCy();
+        return dx * dx + dy * dy <= circle.getR() * circle.getR();
+    }
+
+    @Override
+    public void translate(int dx, int dy) {
+        x += dx;
+        y += dy;
+    }
+
+    public int getX() { return x; }
+    public int getY() { return y; }
+    public int getWidth() { return width; }
+    public int getHeight() { return height; }
 }
